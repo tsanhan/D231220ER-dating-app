@@ -1,0 +1,9 @@
+<h1>
+  {{title}}
+  <i class="fa fa-user"></i>
+</h1>
+<ul>
+  <li *ngFor="let user of users">
+    {{user.id}} - {{user.userName}}
+  </li>
+</ul>

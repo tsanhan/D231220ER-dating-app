@@ -20,7 +20,10 @@ export class AppComponent implements OnInit {
 
   getUsers() {
     this.http.get('https://localhost:5001/api/users').subscribe(res => {
-      this.users = res; //WTF is? CORS?!?!?!?
+      setTimeout(() => {
+
+      },5000)
+      this.users = res;
     },
     err => {
       console.log(err);
