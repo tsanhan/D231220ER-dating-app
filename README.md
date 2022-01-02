@@ -1,25 +1,30 @@
-19. section intro:
-    1. complete the working skeleton with the front end client angular app
-    2. using angular cli
-    3. review angular project files and the angular bootstrap process
-    4. using angular HttpClient service to fetch the data
-    5. running an angular app over HTTPS protocol
-    6. adding external packages via npm
-20. Creating the Angular application
-21. Running the angular project and reviewing the bootstrap of the app
-22. Adding VS Code extensions to work with Angular
-23. Making HTTP requests in Angular
-24. Adding CORS support in the API
-25. Displaying the fetched users in the browser
-26. Adding bootstrap and font-awesome
-28. Using HTTPS in angular - WINDOWS
+31. section 4, authentication basics, intro:
+goals: 
+    1. implement basic auth
+    2. understand how to store passwords in DB
+    3. c# inheritance - DRY
+    4. using c# debugger
+    5. TDOs
+    6. validation
+    7. JWT
+    8. services in C#
+    9. middleware
+    10. extension methods - DRY
 
-summery:
-1. done with our working skeleton
-2. using angular cli -basic
-3. a look of angular files/components to bootstrap -very basic
-4. using HttpClient to call for remote data source -basic
-5. http => https
-6. adding packages
+requirements:
+    1. log in
+    2. register
+    3. view other users
+    4. privately message other users
 
-next up: adding authentication
+32. Safe storage of passwords
+33. Updating the user entity
+35. Creating an Account Controller with a register endpoint
+36. Using the debugger
+37. Using DTOs
+38. Adding validation
+39. Adding a login endpoint
+40. JSON web tokens
+41. Adding a token service
+
+
