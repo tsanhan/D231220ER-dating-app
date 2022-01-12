@@ -11,7 +11,7 @@ export class AppComponent implements OnInit {
   title = 'The Dating App';
   users: any;
 
-  constructor(private http: HttpClient, private accountService: AccountService) {
+  constructor(private accountService: AccountService) {
 
   }
 

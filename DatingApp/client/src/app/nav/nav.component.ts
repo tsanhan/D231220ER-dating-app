@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { Observable } from 'rxjs';
 import { User } from '../models/user';
 import { AccountService } from '../services/account.service';
 
@@ -10,12 +11,15 @@ import { AccountService } from '../services/account.service';
 })
 export class NavComponent implements OnInit {
   model: any = {};
-  loggedIn: boolean = false;
+  // loggedIn: boolean = false;
+  currentUser$: Observable<User | null>;
 
-  constructor(private accountService: AccountService) { }
+  constructor(private accountService: AccountService) {
+    this.currentUser$ = this.accountService.currentUser$;
+  }
 
   ngOnInit(): void {
-    this.getCurrnetUser();
+
   }
   logout() {
     this.accountService.logout();
@@ -32,10 +36,5 @@ export class NavComponent implements OnInit {
     });
   }
 
-  getCurrnetUser() {
-    this.accountService.currentUser$.subscribe((user:User | null) => {
-      this.loggedIn = !!user;
-    });
 
-  }
 }
