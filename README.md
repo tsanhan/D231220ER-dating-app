@@ -9,6 +9,8 @@ Section 6: angular routing:
     5. using a shared model
 
 64. Creating some more components
+65. add nav
+66. 
 
 
 

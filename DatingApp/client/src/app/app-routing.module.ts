@@ -1,3 +1,4 @@
+import { AutoGuard } from './guards/Auto.guard';
 import { MemberDetailComponent } from './members/member-detail/member-detail.component';
 import { MemberListComponent } from './members/member-list/member-list.component';
 import { NgModule } from '@angular/core';
@@ -13,20 +14,17 @@ const routes: Routes = [
     pathMatch: 'full'
   },
   {
-    path: 'members',// localhost:4200/members
-    component: MemberListComponent
-  },
-  {
-    path: 'members/:id',// localhost:4200/members/4
-    component: MemberDetailComponent
-  },
-  {
-    path: 'lists',
-    component: ListsComponent
-  },
-  {
-    path: 'messages',// localhost:4200/messages
-    component: MessagesComponent
+    path: '' ,
+    canActivate: [AutoGuard],
+    runGuardsAndResolvers: 'always',
+    children: [
+      {
+        path: 'members',
+        loadChildren: () => import('./modules/members.module').then(m => m.MembersModule)
+      },
+      {path: 'lists', component: ListsComponent},
+      {path: 'messages',component: MessagesComponent}
+    ]
   },
   {
     path: '**', // localhost:4200/non-existing-route/asdasd/asdasd/
