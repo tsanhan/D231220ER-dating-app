@@ -32,10 +32,6 @@ import { CoreModule } from './modules/core.module';
     NavComponent,
     HomeComponent,
     RegisterComponent,
-<<<<<<< HEAD
-=======
-
->>>>>>> 6c0a1ae2a6009a3100d8c1021599012ab47dab21
     ListsComponent,
     MessagesComponent,
    ],
