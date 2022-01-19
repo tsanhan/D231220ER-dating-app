@@ -12,9 +12,15 @@ export class RegisterComponent implements OnInit {
   @Input() usersFromHomeComponent: any;
   @Output() cancelRegister = new EventEmitter<boolean>();
 
+<<<<<<< HEAD
   constructor(private accountService: AccountService,
     private toster: ToastrService
     ) { }
+=======
+  constructor(
+    private accountService: AccountService,
+    private toastr: ToastrService) { }
+>>>>>>> 6c0a1ae2a6009a3100d8c1021599012ab47dab21
 
   ngOnInit(): void {
 
@@ -26,10 +32,16 @@ export class RegisterComponent implements OnInit {
         this.cancel();
       },
       error => {
+<<<<<<< HEAD
       this.toster.error(error.error);
       console.log(error);
       }
 
+=======
+        this.toastr.error(error.error)
+        console.log(error)
+      }
+>>>>>>> 6c0a1ae2a6009a3100d8c1021599012ab47dab21
     )
   }
   cancel(){

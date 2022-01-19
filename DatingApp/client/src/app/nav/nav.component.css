@@ -1,3 +1,7 @@
+<<<<<<< HEAD
 .dropdown-toggle, .dropdown-item, pointer {
+=======
+.dropdown-toggle, .dropdown-item, .pointer {
+>>>>>>> 6c0a1ae2a6009a3100d8c1021599012ab47dab21
   cursor: pointer;
 }
