@@ -1,3 +1,5 @@
-.dropdown-toggle, .dropdown-item, .pointer {
+
+.dropdown-toggle, .dropdown-item, pointer {
+
   cursor: pointer;
 }

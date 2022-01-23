@@ -8,7 +8,8 @@ Section 6: angular routing:
     4. using route guards (prevent access to components -not a real security thing)
     5. using a shared model
 
-64. Creating some more components
+64. Creating some more compon
+=======
 65. Adding the nav links
 66. Routing in code
 67. Adding a toast service for notifications
@@ -21,5 +22,6 @@ Section 6: angular routing:
     2. added bootstrap theme
     3. route guards (not a security, security is on the BE, FE have all the code)
     4. feature + shared modules (can talk about core module - things that are used in all the app) 
+
 
 
