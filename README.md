@@ -22,6 +22,6 @@ Section 6: angular routing:
     2. added bootstrap theme
     3. route guards (not a security, security is on the BE, FE have all the code)
     4. feature + shared modules (can talk about core module - things that are used in all the app) 
->>>>>>> 6c0a1ae2a6009a3100d8c1021599012ab47dab21
+
 
 

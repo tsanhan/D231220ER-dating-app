@@ -1,23 +1,6 @@
 <!-- the idea to use sticky was a good one! -->
 <nav class="navbar navbar-expand-md navbar-dark sticky-top bg-primary">
   <div class="container">
-<<<<<<< HEAD
-    <a class="navbar-brand" routerLink="/" >Dating App</a>
-
-      <ul class="navbar-nav mr-auto">
-        <ng-container *ngIf="currentUser$ | async">
-          <li class="nav-item">
-            <a class="nav-link" routerLinkActive="active" routerLink="/members">Matches</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" routerLinkActive="active" routerLink="/lists">Lists</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" routerLinkActive="active" routerLink="/messages">Messages</a>
-          </li>
-        </ng-container>
-      </ul>
-=======
     <a class="navbar-brand" routerLink="/">Dating App</a>
     <ul class="navbar-nav mr-auto">
       <ng-container *ngIf="currentUser$ | async">
@@ -31,11 +14,14 @@
           <a class="nav-link" routerLinkActive="active" routerLink="/messages"> Messages</a>
         </li>
       </ng-container>
+
+       <li class="nav-item" >
+        <a class="nav-link" routerLinkActive="active" routerLink="/errors"> Errors</a>
+      </li>
     </ul>
 
     <div class="dropdown" *ngIf="currentUser$ | async" dropdown>
       <a class="dropdown-toggle text-light" href="#" dropdownToggle>Welcome user</a>
->>>>>>> 6c0a1ae2a6009a3100d8c1021599012ab47dab21
 
       <div class="dropdown-menu mt-3" *dropdownMenu>
         <a class="dropdown-item">Edit Profile</a>

@@ -1,15 +1,12 @@
-<<<<<<< HEAD
-import { AutoGuard } from './guards/Auto.guard';
-import { MemberDetailComponent } from './members/member-detail/member-detail.component';
-import { MemberListComponent } from './members/member-list/member-list.component';
-=======
->>>>>>> 6c0a1ae2a6009a3100d8c1021599012ab47dab21
+import { TestErrorsComponent } from './errors/test-errors/test-errors.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { ListsComponent } from './lists/lists.component';
 import { MessagesComponent } from './messages/messages.component';
 import { AuthGuard } from './guards/auth.guard';
+import { NotFaundComponent } from './errors/not-faund/not-faund.component';
+import { ServerErrorComponent } from './errors/server-error/server-error.component';
 
 const routes: Routes = [
   {
@@ -18,34 +15,25 @@ const routes: Routes = [
     pathMatch: 'full'
   },
   {
-<<<<<<< HEAD
     path: '' ,
-    canActivate: [AutoGuard],
-=======
-    path: '',
-    canActivate:[AuthGuard],
->>>>>>> 6c0a1ae2a6009a3100d8c1021599012ab47dab21
+    canActivate: [AuthGuard],
     runGuardsAndResolvers: 'always',
     children: [
       {
         path: 'members',
         loadChildren: () => import('./modules/members.module').then(m => m.MembersModule)
       },
-<<<<<<< HEAD
       {path: 'lists', component: ListsComponent},
       {path: 'messages',component: MessagesComponent}
     ]
   },
   {
-    path: '**', // localhost:4200/non-existing-route/asdasd/asdasd/
-=======
-      {path: 'lists',component: ListsComponent},
-      {path: 'messages',component: MessagesComponent},
-    ]
+    path: 'errors' , component: TestErrorsComponent
   },
+  { path: 'not-found' , component: NotFaundComponent},
+  { path: 'server-error' , component: ServerErrorComponent },
   {
-    path: '**',
->>>>>>> 6c0a1ae2a6009a3100d8c1021599012ab47dab21
+    path: '**', // localhost:4200/non-existing-route/asdasd/asdasd/
     pathMatch: 'full',
     component: HomeComponent
   }
