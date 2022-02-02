@@ -7,7 +7,7 @@ import { MemberCardComponent } from '../members/member-card/member-card.componen
 
 const routes: Routes = [
   { path: '', component: MemberListComponent, pathMatch: 'full' },
-  { path: ':id', component: MemberDetailComponent },
+  { path: ':username', component: MemberDetailComponent }
 ]
 
 @NgModule({

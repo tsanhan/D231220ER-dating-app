@@ -13,3 +13,6 @@ learning goals:
 104. Retrieving the list of members
 105. Creating member cards
 106. Adding some style to the cards
+107. Adding animated buttons
+108. Using an interceptor to send the token
+109. Routing to the detailed page
