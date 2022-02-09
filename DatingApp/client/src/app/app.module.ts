@@ -1,3 +1,4 @@
+import { LoadingInterceptor } from './interceptors/loading.interceptor';
 import { ErrorInterceptor } from './interceptors/error.interceptor';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
@@ -55,6 +56,11 @@ import { MemberEditComponent } from './member-edit/member-edit.component';
     {
       provide: HTTP_INTERCEPTORS,
       useClass: JwtInterceptor,
+      multi: true
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: LoadingInterceptor,
       multi: true
     }
   ],

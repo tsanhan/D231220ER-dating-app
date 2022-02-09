@@ -12,3 +12,5 @@
 117. Adding the update functionality
 118. Adding a Can Deactivate route guard
 119. Persisting the changes in the API
+120. Updating the user in the client app
+121. Adding loading indicators
