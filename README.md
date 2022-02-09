@@ -9,4 +9,6 @@
 
 115. Creating a member edit component
 116. Creating the edit template form
-
+117. Adding the update functionality
+118. Adding a Can Deactivate route guard
+119. Persisting the changes in the API
