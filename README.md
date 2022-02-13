@@ -14,3 +14,10 @@
 119. Persisting the changes in the API
 120. Updating the user in the client app
 121. Adding loading indicators
+122. Using the service to store state
+123. Section 10 summary
+    1. angular template forms: and how access the form itself using the @ViewChild decorator
+    2. the CanDeactivate route guard: to make sure the user want to leave the page
+    3. adding loading indicators to the app: that shows us a sort of a problem: we making too much api calls...
+    4. so we stored some data in a service (singleton objects ): 
+

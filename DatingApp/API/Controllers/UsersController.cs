@@ -41,8 +41,6 @@ namespace API.Controllers
             }
 
             return BadRequest("Failed to update user");
-
-
         }
 
         [HttpGet]
