@@ -22,6 +22,8 @@ import { MemberCardComponent } from './members/member-card/member-card.component
 import { JwtInterceptor } from './interceptors/jwt.interceptor';
 import { SharedModule } from './modules/shared.module';
 import { MemberEditComponent } from './member-edit/member-edit.component';
+import { PhotoEditorComponent } from './member-edit/photo-editor/photo-editor.component';
+
 
 
 @NgModule({
@@ -37,6 +39,7 @@ import { MemberEditComponent } from './member-edit/member-edit.component';
     NotFoundComponent,
     ServerErrorComponent,
     MemberEditComponent,
+    PhotoEditorComponent
    ],
   imports: [
     SharedModule,
@@ -45,7 +48,8 @@ import { MemberEditComponent } from './member-edit/member-edit.component';
     HttpClientModule,
     BrowserAnimationsModule,
     FormsModule,
-    CoreModule
+    CoreModule,
+
   ],
   providers: [
     {

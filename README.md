@@ -30,3 +30,10 @@ we will learn and understand:
 125. Cloudinary Account
 126. Configuring cloudinary in the API
 127. Adding a photo service
+128. Updating the users controller
+129. Testing the photo upload
+130. Using the Created At Route method
+131. Adding a photo editor component
+132. Adding a photo uploader
+133. Adding a photo uploader part two
+

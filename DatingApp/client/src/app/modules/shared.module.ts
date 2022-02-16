@@ -5,6 +5,7 @@ import { ToastrModule } from 'ngx-toastr';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { NgxGalleryModule } from '@kolkov/ngx-gallery';
 import { NgxSpinnerModule } from 'ngx-spinner';
+import { FileUploadModule } from 'ng2-file-upload';
 
 @NgModule({
   imports: [
@@ -15,7 +16,8 @@ import { NgxSpinnerModule } from 'ngx-spinner';
     ToastrModule.forRoot({
       positionClass: 'toast-bottom-right'
     }),
-    NgxSpinnerModule
+    NgxSpinnerModule,
+    FileUploadModule
   ],
   declarations: [],
   exports:[
@@ -23,7 +25,8 @@ import { NgxSpinnerModule } from 'ngx-spinner';
     TabsModule,
     BsDropdownModule,
     ToastrModule,
-    NgxSpinnerModule
+    NgxSpinnerModule,
+    FileUploadModule
   ]
 })
 export class SharedModule { }
