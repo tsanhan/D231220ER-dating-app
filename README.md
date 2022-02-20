@@ -36,4 +36,16 @@ we will learn and understand:
 131. Adding a photo editor component
 132. Adding a photo uploader
 133. Adding a photo uploader part two
-
+134. Setting the main photo in the API
+135. Adding the main photo image to the nav bar
+136. Setting the main photo in the client
+137. Deleting photos - API
+138. Deleting photos - Client
+139. Section 11 summary
+    1. we looked at the storage options for the photos
+    2. how to add the photos to our user entity collection.
+    3. We took a look at using a 3rd party API
+    4. we used the debugger (again)
+    5. updating and deleting resources
+    6. what to do (and return) when we create resources in a REST API 
+    
