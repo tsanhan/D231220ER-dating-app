@@ -12,3 +12,5 @@
 141. Reactive forms introduction
 142. Client side validation
 143. Adding custom validators
+144. Validation feedback
+145. Creating a reusable text input

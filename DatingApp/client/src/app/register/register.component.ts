@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, DoCheck, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { AbstractControl, FormControl, FormGroup, ValidationErrors, ValidatorFn, Validators } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 import { AccountService } from '../services/account.service';
@@ -17,6 +17,7 @@ export class RegisterComponent implements OnInit {
   constructor(
     private accountService: AccountService,
     private toastr: ToastrService) { }
+
 
   ngOnInit(): void {
     this.initializeForm();
@@ -45,6 +46,7 @@ export class RegisterComponent implements OnInit {
       password: new FormControl('', [Validators.required, Validators.minLength(4), Validators.maxLength(8)]),
       confirmPassword: new FormControl('', [Validators.required, this.matchValues('password')]),
     });
+
     this.registerForm.get('password')?.valueChanges.subscribe(() => {
       this.registerForm.get('confirmPassword')?.updateValueAndValidity();
     });

@@ -23,6 +23,7 @@ import { JwtInterceptor } from './interceptors/jwt.interceptor';
 import { SharedModule } from './modules/shared.module';
 import { MemberEditComponent } from './member-edit/member-edit.component';
 import { PhotoEditorComponent } from './member-edit/photo-editor/photo-editor.component';
+import { TextInputComponent } from './forms/text-input/text-input.component';
 
 
 
@@ -32,7 +33,7 @@ import { PhotoEditorComponent } from './member-edit/photo-editor/photo-editor.co
     NavComponent,
     HomeComponent,
     RegisterComponent,
-
+    TextInputComponent,
     ListsComponent,
     MessagesComponent,
     TestErrorsComponent,
