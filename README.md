@@ -14,3 +14,6 @@
 143. Adding custom validators
 144. Validation feedback
 145. Creating a reusable text input
+147. Expanding the register form
+148. Adding a reusable date input
+149. Updating the API register method

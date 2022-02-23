@@ -1,5 +1,5 @@
 import { Component, DoCheck, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { AbstractControl, FormControl, FormGroup, ValidationErrors, ValidatorFn, Validators } from '@angular/forms';
+import { AbstractControl, FormBuilder, FormControl, FormGroup, ValidationErrors, ValidatorFn, Validators } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 import { AccountService } from '../services/account.service';
 
@@ -13,14 +13,18 @@ export class RegisterComponent implements OnInit {
   @Input() usersFromHomeComponent: any;
   @Output() cancelRegister = new EventEmitter<boolean>();
   registerForm: FormGroup;
+  maxDate: Date;
 
   constructor(
     private accountService: AccountService,
-    private toastr: ToastrService) { }
+    private toastr: ToastrService,
+    private fb: FormBuilder) { }
 
 
   ngOnInit(): void {
     this.initializeForm();
+    this.maxDate = new Date();
+    this.maxDate.setFullYear(this.maxDate.getFullYear() - 18);
   }
   register() {
     // this.accountService.register(this.model).subscribe(
@@ -41,11 +45,28 @@ export class RegisterComponent implements OnInit {
   }
 
   initializeForm() {
-    this.registerForm = new FormGroup({
-      username: new FormControl("Hello", Validators.required),
-      password: new FormControl('', [Validators.required, Validators.minLength(4), Validators.maxLength(8)]),
-      confirmPassword: new FormControl('', [Validators.required, this.matchValues('password')]),
+    this.registerForm = this.fb.group({
+      gender: ['male'],
+      username: ['', Validators.required],
+      knownAs:['', Validators.required],
+      dateOfBirth: ['', Validators.required],
+      city: ['', Validators.required],
+      country: ['', Validators.required],
+      password: ['', [
+        Validators.required,
+        Validators.minLength(4),
+        Validators.maxLength(8)
+      ]],
+      confirmPassword: ['', [
+        Validators.required,
+        this.matchValues('password')
+      ]]
     });
+    // this.registerForm = new FormGroup({
+    //   username: new FormControl("Hello", Validators.required),
+    //   password: new FormControl('', [Validators.required, Validators.minLength(4), Validators.maxLength(8)]),
+    //   confirmPassword: new FormControl('', [Validators.required, this.matchValues('password')]),
+    // });
 
     this.registerForm.get('password')?.valueChanges.subscribe(() => {
       this.registerForm.get('confirmPassword')?.updateValueAndValidity();
