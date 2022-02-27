@@ -1,6 +1,8 @@
 import { Component, DoCheck, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { AbstractControl, FormBuilder, FormControl, FormGroup, ValidationErrors, ValidatorFn, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+import { Observable } from 'rxjs';
 import { AccountService } from '../services/account.service';
 
 @Component({
@@ -9,16 +11,17 @@ import { AccountService } from '../services/account.service';
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
-  model: any = {};
   @Input() usersFromHomeComponent: any;
   @Output() cancelRegister = new EventEmitter<boolean>();
   registerForm: FormGroup;
   maxDate: Date;
+  validationErrors: string[] = [];
 
   constructor(
     private accountService: AccountService,
     private toastr: ToastrService,
-    private fb: FormBuilder) { }
+    private fb: FormBuilder,
+    private router: Router) { }
 
 
   ngOnInit(): void {
@@ -27,16 +30,21 @@ export class RegisterComponent implements OnInit {
     this.maxDate.setFullYear(this.maxDate.getFullYear() - 18);
   }
   register() {
-    // this.accountService.register(this.model).subscribe(
-    //   (data) => {
-    //     console.log(data);
-    //     this.cancel();
-    //   },
-    //   error => {
-    //     this.toastr.error(error.error)
-    //     console.log(error)
-    //   }
-    // )
+    this.accountService.register(this.registerForm.value).subscribe(
+      (re) => {
+        this.router.navigate(['/members']);
+        this.cancel();
+      },
+      error => {
+        if(Array.isArray(error)) {
+          this.validationErrors = error;
+        }
+
+        // this.toastr.error(error.error)
+        // console.log(error)
+
+      }
+    )
     console.log(this.registerForm.value);
 
   }

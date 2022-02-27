@@ -18,19 +18,17 @@
   <app-text-input formControlName="city" label="City"></app-text-input>
   <app-text-input formControlName="country" label="Country"></app-text-input>
   <app-text-input formControlName="password" label="Password" type="password"></app-text-input>
-  <app-text-input formControlName="confirmPassword" label="Confirm Password"  type="password"></app-text-input>
+  <app-text-input formControlName="confirmPassword" label="Confirm Password" type="password"></app-text-input>
 
 
+  <div class="row mt-5" *ngIf="validationErrors.length">
+    <ul class="text-danger">
+      <li *ngFor="let error of validationErrors">{{error}}</li>
+    </ul>
+  </div>
 
   <div class="form-group text-center">
-    <button class="btn btn-success mr-2" type="submit">Register</button>
+    <button [disabled]="registerForm.invalid" class="btn btn-success mr-2" type="submit">Register</button>
     <button class="btn btn-default mr-2" type="button" (click)="cancel()">Cancel</button>
   </div>
 </form>
-
-
-<p>Form value: {{registerForm.value | json}}</p>
-
-<p>Form status: {{registerForm.status}}</p>
-<p>password status: {{registerForm.get('password')?.status}}</p>
-<p>confirmPassword status: {{registerForm.get('confirmPassword')?.status}}</p>
