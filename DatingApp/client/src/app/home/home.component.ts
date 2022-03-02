@@ -7,26 +7,17 @@ import { MembersService } from '../services/members.service';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent {
   registerMode = false;
   users: any;
 
-  constructor(private http: HttpClient,private membersService: MembersService) { }
+  constructor(private membersService: MembersService) { }
 
-  ngOnInit(): void {
-    this.getUsers();
-  }
 
   registerToggle() {
     this.registerMode = !this.registerMode
   }
 
-  getUsers(){
-    this.membersService.getMembers()
-    .subscribe(
-      users => this.users = users,
-      error => console.log(error))
-  }
   cancelRegisterMode($event: boolean){
     this.registerMode = $event;
   }

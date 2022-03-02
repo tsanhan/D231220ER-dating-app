@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { ReplaySubject } from 'rxjs';
-import { map } from "rxjs/operators";
+import { map, switchMap } from "rxjs/operators";
 import { environment } from 'src/environments/environment';
 import { User } from '../models/user';
 @Injectable({
@@ -18,11 +18,12 @@ export class AccountService {
   login(model: any) {
     return this.http.post<User>(this.baseUrl + 'account/login', model)
       .pipe(
-        map((response: User) => {
+        map((response) => {
           const user = response;
           if (user) {
             this.setCurrentUser(user);
           }
+          return user
         }));
   }
 

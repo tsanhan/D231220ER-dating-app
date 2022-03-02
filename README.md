@@ -20,3 +20,4 @@
 153. Adding a paged list class
 154. Adding helper classes for pagination
 155. Using the pagination classes
+156. Setting up client pagination
