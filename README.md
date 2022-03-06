@@ -26,3 +26,6 @@
 159. Adding additional filters
 160. Cleaning up the member service
 161. Adding filter buttons to the client
+162. Adding sorting functionality
+163. Adding an action filter
+164. Making the Last Active action filter more optimal
