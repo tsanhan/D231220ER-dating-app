@@ -24,3 +24,5 @@
 157. Using the angular bootstrap pagination component
 158. Adding filtering to the API
 159. Adding additional filters
+160. Cleaning up the member service
+161. Adding filter buttons to the client
