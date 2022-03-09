@@ -29,3 +29,8 @@
 162. Adding sorting functionality
 163. Adding an action filter
 164. Making the Last Active action filter more optimal
+165. Sorting on the client
+166. Formatting dates
+167. Restoring the caching for members
+
+

@@ -28,6 +28,7 @@ import { DateInputComponent } from './forms/date-input/date-input.component';
 
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -42,7 +43,8 @@ import { DateInputComponent } from './forms/date-input/date-input.component';
     NotFoundComponent,
     ServerErrorComponent,
     MemberEditComponent,
-    PhotoEditorComponent
+    PhotoEditorComponent,
+
    ],
   imports: [
     SharedModule,
