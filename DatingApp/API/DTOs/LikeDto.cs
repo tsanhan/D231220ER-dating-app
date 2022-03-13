@@ -10,6 +10,7 @@ namespace API.DTOs
         public string PhotoUser { get; set; }
         
         public string City { get; set; }
+        public string Country { get; set; }
         
         
         
