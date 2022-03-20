@@ -14,4 +14,6 @@
 173. Adding a likes repository
 174. Implementing the likes repository
 175. Controller methods for the likes feature
+176. Setting up the likes functions in the Angular app
+177. Adding the likes component
 

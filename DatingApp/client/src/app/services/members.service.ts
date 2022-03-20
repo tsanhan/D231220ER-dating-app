@@ -33,6 +33,14 @@ export class MembersService {
       });
   }
 
+  addLike(username: string){
+    const url = `${this.baseUrl}likes/${username}`;
+    return this.http.post(url, {});
+  }
+
+  getLikes(predicate: string) {
+    return this.http.get<Partial<Member>[]>(`${this.baseUrl}likes?predicate=${predicate}`);
+  }
 
   public get UserParams(): UserParams {
     return this.userParams

@@ -18,7 +18,7 @@ namespace API.Data
         }
         public async Task<UserLike> GetUserLike(int sourceUserId, int likedUserId)
         {
-            return await _context.Likes.FindAsync(sourceUserId, likedUserId);
+            return await _context.Likes.FindAsync(likedUserId, sourceUserId);
         }
 
         public async Task<IEnumerable<LikeDto>> GetUserLikes(string predicate, int userId)
@@ -44,7 +44,7 @@ namespace API.Data
                 Country = user.Country,
                 Id = user.Id,
                 KnownAs = user.KnownAs,
-                PhotoUser = user.Photos.FirstOrDefault(p => p.IsMain).Url,
+                PhotoUrl = user.Photos.FirstOrDefault(p => p.IsMain).Url,
                 Username = user.UserName
             }).ToListAsync();
         }
