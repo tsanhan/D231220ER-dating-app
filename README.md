@@ -11,3 +11,5 @@
 184. Setting up the automapper profiles
 185. Adding a message controller
 186. Getting the messages from the Repo
+187. Getting the message thread for 2 users
+188. Setting up the Angular app for messaging

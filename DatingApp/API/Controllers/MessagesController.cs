@@ -31,7 +31,7 @@ namespace API.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult<MessageDto>> CreageMessage(CreateMessageDto createMessageDto)
+        public async Task<ActionResult<MessageDto>> CreateMessage(CreateMessageDto createMessageDto)
         {
             var username = User.GetUsername();
 
@@ -64,13 +64,21 @@ namespace API.Controllers
             return BadRequest("Failed to send message");
         }
 
-        [HttpGet]
+        [HttpGet] //api/messages
         public async Task<ActionResult<PagedList<MessageDto>>> GetMessagesGorUser([FromQuery] MessageParams messageParams) {
 
             messageParams.Username = User.GetUsername();
             var messages = await _messageRepository.GetMessagesForUser(messageParams);
             Response.AddPaginationHeader(messages.CurrentPage, messages.PageSize, messages.TotalCount,messages.TotalPages);
             return Ok(messages);
+        }
+    
+
+        [HttpGet("thread/{username}")] //api/messages/thread/davis
+        public async Task<ActionResult<IEnumerable<MessageDto>>> GetMessageThread(string username) {
+            var currentUsername = User.GetUsername();
+            var messageThread = await _messageRepository.GetMessageThread(currentUsername, username);
+            return Ok(messageThread);
         }
     }
 }
