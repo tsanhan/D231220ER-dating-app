@@ -13,3 +13,6 @@
 186. Getting the messages from the Repo
 187. Getting the message thread for 2 users
 188. Setting up the Angular app for messaging
+189. Designing the inbox
+190. Adding the message thread in the client
+191. Styling the message thread

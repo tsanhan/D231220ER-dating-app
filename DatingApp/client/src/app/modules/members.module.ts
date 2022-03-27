@@ -4,6 +4,7 @@ import { MemberDetailComponent } from '../members/member-detail/member-detail.co
 import { MemberListComponent } from '../members/member-list/member-list.component';
 import { Routes, RouterModule } from '@angular/router';
 import { SharedModule } from './shared.module';
+import { MemberMessagesComponent } from '../members/member-messages/member-messages.component';
 
 const routes: Routes = [
   { path: '', component: MemberListComponent, pathMatch: 'full' },
@@ -14,7 +15,7 @@ const routes: Routes = [
   declarations: [
     MemberListComponent,
     MemberDetailComponent,
-
+    MemberMessagesComponent,
 
   ],
   imports: [
@@ -25,7 +26,7 @@ const routes: Routes = [
   exports: [
     RouterModule,
     MemberListComponent,
-    MemberDetailComponent,
+    MemberDetailComponent
   ]
 })
 export class MembersModule { }
