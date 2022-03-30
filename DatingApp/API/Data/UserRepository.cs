@@ -25,30 +25,35 @@ namespace API.Data
 
         public async Task<PagedList<MemberDto>> GetMembersAsync(UserParams userParams)
         {
-            
+
             var query = _context.Users.AsQueryable();
 
             query = query.Where(x => x.UserName != userParams.CurrentUsername);
             query = query.Where(x => x.Gender == userParams.Gender);
 
             // 20-30
-            
-            var minDob = DateTime.Today.AddYears(-userParams.MaxAge -1);
+
+            var minDob = DateTime.Today.AddYears(-userParams.MaxAge - 1);
             var maxDob = DateTime.Today.AddYears(-userParams.MinAge);
 
             query = query.Where(x => x.DateOfBirth >= minDob && x.DateOfBirth <= maxDob);
-            
-          
+
+
             query = userParams.OrderBy switch
             {
                 "created" => query.OrderByDescending(x => x.Created),
                 _ => query.OrderByDescending(x => x.LastActive),
             };
 
+            if (userParams.Gender == null)
+            {
+                return new PagedList<MemberDto>(new List<MemberDto>{}, 0, 0, 0);
+            }
+
             return await PagedList<MemberDto>.CreateAsync
             (
                 query.ProjectTo<MemberDto>(_mapper.ConfigurationProvider).AsNoTracking(),
-                userParams.PageNumber, 
+                userParams.PageNumber,
                 userParams.PageSize
             );
         }
@@ -93,6 +98,6 @@ namespace API.Data
             _context.Entry<AppUser>(user).State = EntityState.Modified;
         }
 
-        
+
     }
 }

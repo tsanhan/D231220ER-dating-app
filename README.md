@@ -16,3 +16,8 @@
 189. Designing the inbox
 190. Adding the message thread in the client
 191. Styling the message thread
+192. Activating the message tab
+193. Using query params
+194. Using route resolvers
+195. Sending messages
+196. Fixing the messages component
