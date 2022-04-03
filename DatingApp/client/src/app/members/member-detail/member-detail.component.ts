@@ -51,7 +51,6 @@ export class MemberDetailComponent implements OnInit, OnDestroy {
         preview: false
     }];
 
-
   }
 
   getImages(): NgxGalleryImage[] {

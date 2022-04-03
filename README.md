@@ -21,4 +21,11 @@
 194. Using route resolvers
 195. Sending messages
 196. Fixing the messages component
+197. Deleting messages on the API
+198. Deleting messages on the client (+ understand event propagation)
+199. Section 15 summary:
+    1. more many to many relationships, what are do you think about how this M2M relationship has implemented?
+        * for me messages makes more sense, it;s not just likes, there is content the joint table represents
+    2. looking at query params, putting them in the url and reading them from the url
+    3. using route resolvers as means to get data before the component constructs (so life's easier without conditionals)
 
