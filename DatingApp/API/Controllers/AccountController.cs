@@ -17,6 +17,7 @@ namespace API.Controllers
         private readonly DataContext _context;
         private readonly ITokenService _tokenService;
         private readonly IMapper _mapper;
+
         public AccountController(DataContext context, ITokenService tokenService, IMapper mapper)
         {
             _mapper = mapper;
@@ -77,6 +78,8 @@ namespace API.Controllers
                 Gender = user.Gender
             };
         }
+
+       
         private async Task<bool> UserExists(string username)
         {
             return await _context.Users.AnyAsync(x => x.UserName == username.ToLower());

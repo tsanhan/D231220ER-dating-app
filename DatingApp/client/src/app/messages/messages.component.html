@@ -15,7 +15,7 @@
 
 <div class="row" [ngSwitch]="messages.length">
   <h3 *ngSwitchCase="0">No messages</h3>
-  <table *ngSwitchDefault class="table table-hover" style="cursor: pointer;">
+  <table  *ngSwitchDefault class="table table-hover" style="cursor: pointer;">
     <thead>
       <tr>
         <th style="width: 40%;">Message</th>
@@ -24,7 +24,7 @@
         <th style="width: 20%;"></th>
       </tr>
     </thead>
-    <tbody>
+    <tbody >
       <tr [hidden]="loading" *ngFor="let message of messages "
         [queryParams]="{tab:3}"
         [routerLink]="'/members/' + (container === 'Outbox' ? message.recipientUsername : message.senderUsername)">
@@ -44,7 +44,8 @@
           </ng-container>
         </td>
         <td>{{message.messageSent | timeago}}</td>
-        <button class="btn btn-danger">Danger</button>
+
+        <button (click)="$event.stopPropagation()"  (click)="deleteMessage(message.id)" class="btn btn-danger">Delete</button>
 
       </tr>
     </tbody>
