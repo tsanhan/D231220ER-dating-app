@@ -34,3 +34,10 @@
 221. Adding a presence hub
 222. Authenticating to SignalR
 223. Client side SignalR
+224. Adding a presence tracker
+225. Displaying online presence
+226. Creating a message hub
+227. Adding the send message method to the hub
+228. Adding the hub connection to the message service
+229. Refactoring the message components to use the hub
+230. Sending messages via the hub

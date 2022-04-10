@@ -1,3 +1,5 @@
+import { take } from 'rxjs/operators';
+import { AccountService } from './../../services/account.service';
 import { PresenceService } from './../../services/presence.service';
 import { MessageService } from './../../services/message.service';
 import { ChangeDetectionStrategy, Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
@@ -8,6 +10,7 @@ import { Member } from 'src/app/models/member';
 import { Message } from 'src/app/models/message';
 import { MembersService } from 'src/app/services/members.service';
 import { Subscription } from 'rxjs';
+import { User } from 'src/app/models/user';
 
 @Component({
   selector: 'app-member-detail',
@@ -22,15 +25,22 @@ export class MemberDetailComponent implements OnInit, OnDestroy {
   activeTab: TabDirective;
   messages: Message[] = [];
   subscription: Subscription;
+  user: User;
+
 
   constructor(
     private memberService: MembersService,
     private route: ActivatedRoute,
     private messageService: MessageService,
-    public presence:PresenceService) { }
+    public presence:PresenceService,
+    private accountService: AccountService
+    ) {
+      this.accountService.currentUser$.pipe(take(1)).subscribe(user => this.user = user as User);
+    }
 
   ngOnDestroy(): void {
     this.subscription.unsubscribe();
+    this.messageService.stopHubConnection();
   }
 
   ngOnInit() {
@@ -75,15 +85,20 @@ export class MemberDetailComponent implements OnInit, OnDestroy {
   onTabActivated(data: TabDirective) {
     this.activeTab = data;
     if (this.activeTab.heading === "Messages" && this.messages.length === 0) {
-      this.loadMessages();
+      this.messageService.createHubConnection(this.user, this.member.username);
+      // this.loadMessages();
+    }
+    else {
+      this.messageService.stopHubConnection();
     }
   }
 
-  loadMessages() {
-    this.messageService.getMessageThread(this.member.username).subscribe(m => {
-      this.messages = m;
-    });
-  }
+
+  // loadMessages() {
+  //   this.messageService.getMessageThread(this.member.username).subscribe(m => {
+  //     this.messages = m;
+  //   });
+  // }
 
   selectTab(tabId: number) {
     this.memberTabs.tabs[tabId].active = true;

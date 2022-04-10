@@ -1,9 +1,9 @@
 <div class="card">
-  <div class="card-body">
+  <div class="card-body" >
 
-    <ng-container *ngIf="messages && messages.length; else noMessages">
+    <ng-container *ngIf="(messageService.messageThread$ | async)?.length; else noMessages">
       <ul class="chat">
-        <li *ngFor="let message of messages">
+        <li *ngFor="let message of messageService.messageThread$ | async">
           <span class="chat-img float-right">
             <img class="rounded-circle" [src]="message.senderPhotoUrl || './assets/user.png'"
               [alt]="message.senderUsername">

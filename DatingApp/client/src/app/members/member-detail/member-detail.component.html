@@ -49,7 +49,7 @@
           <ngx-gallery [options]="galleryOptions" [images]="galleryImages" class="ngx-gallery"></ngx-gallery>
         </tab>
         <tab (selectTab)="onTabActivated($event)" heading="Messages">
-          <app-member-messages [messages]="messages" [username]="member.username">
+          <app-member-messages  [username]="member.username">
           </app-member-messages>
          </tab>
       </tabset>
