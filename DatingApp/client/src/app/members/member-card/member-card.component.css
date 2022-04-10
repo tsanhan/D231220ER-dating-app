@@ -37,3 +37,21 @@
 }
 
 
+@keyframes fa-blink {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.4;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.is-online{
+  animation: fa-blink 1.5s linear infinite;
+  color: rgb(90, 202, 90);
+}
+
+

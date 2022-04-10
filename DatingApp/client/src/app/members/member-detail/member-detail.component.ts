@@ -1,3 +1,4 @@
+import { PresenceService } from './../../services/presence.service';
 import { MessageService } from './../../services/message.service';
 import { ChangeDetectionStrategy, Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
@@ -22,7 +23,11 @@ export class MemberDetailComponent implements OnInit, OnDestroy {
   messages: Message[] = [];
   subscription: Subscription;
 
-  constructor(private memberService: MembersService, private route: ActivatedRoute, private messageService: MessageService) { }
+  constructor(
+    private memberService: MembersService,
+    private route: ActivatedRoute,
+    private messageService: MessageService,
+    public presence:PresenceService) { }
 
   ngOnDestroy(): void {
     this.subscription.unsubscribe();
